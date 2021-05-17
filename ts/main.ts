@@ -16,9 +16,7 @@ function addTaskBtn(){
                 <span id="taskName">
                     ${addTask}
                 </span>
-                <button id="deleteButton">
-                    <i class="far fa-trash-alt">X</i>
-                </button>
+                <button id="deleteButton">X</button>
             </div>
         `;
     }
