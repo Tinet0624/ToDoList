@@ -2,6 +2,12 @@ window.onload = function(){
     (<HTMLButtonElement>document.getElementById("addButton")).onclick = addTaskBtn;
 }
 
+let taskNum = 0;
+
+function incrementTaskNum(){
+    taskNum++;
+}
+
 function addTaskBtn(){
 
     let addTask = (<HTMLInputElement>document.getElementById("taskInput")).value;
@@ -10,20 +16,24 @@ function addTaskBtn(){
         alert("Excuse ME your task better not be empty!");
     }
     else{
-        (<HTMLElement>document.getElementById("taskList")).innerHTML += `
+        (<HTMLElement>document.getElementById("taskList")).innerHTML += 
+        `
             <div class="tasks">
                 <input type="checkbox" id="done">
                 <span id="taskName">
                     ${addTask}
                 </span>
-                <button id="deleteButton">X</button>
+                <button id="deleteButton${taskNum}" 
+                onclick="removeTaskBtn(deleteButton${taskNum})">X</button>
             </div>
         `;
     }
-    (<HTMLButtonElement>document.getElementById("deleteButton")).onclick = removeTaskBtn;
+    incrementTaskNum();
+    //(<HTMLButtonElement>document.getElementById("deleteButton")).onclick = removeTaskBtn;
 }
 
-function removeTaskBtn(){
+function removeTaskBtn(id){
     alert("yup");
+    console.log(id);
     // need to remove element. Only seems to work for top element.
 }

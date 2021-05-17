@@ -1,24 +1,31 @@
 window.onload = function () {
     document.getElementById("addButton").onclick = addTaskBtn;
 };
+let taskNum = 0;
+function incrementTaskNum() {
+    taskNum++;
+}
 function addTaskBtn() {
     let addTask = document.getElementById("taskInput").value;
     if (addTask == "") {
         alert("Excuse ME your task better not be empty!");
     }
     else {
-        document.getElementById("taskList").innerHTML += `
+        document.getElementById("taskList").innerHTML +=
+            `
             <div class="tasks">
                 <input type="checkbox" id="done">
                 <span id="taskName">
                     ${addTask}
                 </span>
-                <button id="deleteButton">X</button>
+                <button id="deleteButton${taskNum}" 
+                onclick="removeTaskBtn(deleteButton${taskNum})">X</button>
             </div>
         `;
     }
-    document.getElementById("deleteButton").onclick = removeTaskBtn;
+    incrementTaskNum();
 }
-function removeTaskBtn() {
+function removeTaskBtn(id) {
     alert("yup");
+    console.log(id);
 }
