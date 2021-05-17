@@ -1,5 +1,5 @@
 window.onload = function(){
-    document.getElementById("addButton").onclick = addTaskBtn;
+    (<HTMLButtonElement>document.getElementById("addButton")).onclick = addTaskBtn;
 }
 
 function addTaskBtn(){
@@ -10,7 +10,7 @@ function addTaskBtn(){
         alert("Excuse ME your task better not be empty!");
     }
     else{
-        (<HTMLInputElement>document.getElementById("taskList")).innerHTML += `
+        (<HTMLElement>document.getElementById("taskList")).innerHTML += `
             <div class="tasks">
                 <input type="checkbox" id="done">
                 <span id="taskName">
@@ -22,7 +22,7 @@ function addTaskBtn(){
             </div>
         `;
     }
-    document.getElementById("deleteButton").onclick = removeTaskBtn;
+    (<HTMLInputElement>document.getElementById("deleteButton")).onclick = removeTaskBtn;
 }
 
 function removeTaskBtn(){
