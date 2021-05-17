@@ -22,7 +22,7 @@ function addTaskBtn(){
             </div>
         `;
     }
-    (<HTMLInputElement>document.getElementById("deleteButton")).onclick = removeTaskBtn;
+    (<HTMLButtonElement>document.getElementById("deleteButton")).onclick = removeTaskBtn;
 }
 
 function removeTaskBtn(){
