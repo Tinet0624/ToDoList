@@ -24,7 +24,7 @@ function addTaskBtn(){
                     ${addTask}
                 </span>
                 <button id="deleteButton${taskNum}" 
-                onclick="removeTaskBtn(deleteButton${taskNum})">X</button>
+                onclick="removeTaskBtn('deleteButton${taskNum}')">X</button>
             </div>
         `;
     }
@@ -33,7 +33,8 @@ function addTaskBtn(){
 }
 
 function removeTaskBtn(id){
-    alert("yup");
-    console.log(id);
+    let deleteBtn = document.getElementById(id).parentElement;
+
+    deleteBtn.remove();
     // need to remove element. Only seems to work for top element.
 }

@@ -19,13 +19,13 @@ function addTaskBtn() {
                     ${addTask}
                 </span>
                 <button id="deleteButton${taskNum}" 
-                onclick="removeTaskBtn(deleteButton${taskNum})">X</button>
+                onclick="removeTaskBtn('deleteButton${taskNum}')">X</button>
             </div>
         `;
     }
     incrementTaskNum();
 }
 function removeTaskBtn(id) {
-    alert("yup");
-    console.log(id);
+    let deleteBtn = document.getElementById(id).parentElement;
+    deleteBtn.remove();
 }
