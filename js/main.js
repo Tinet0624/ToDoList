@@ -8,11 +8,10 @@ function addTaskBtn() {
     }
     else {
         let cardDiv = createCardDiv();
-        let taskDiv = createTaskDiv();
         let doneCheckbox = createInputTasks();
         let taskSpan = createTaskP(addTask);
         let deleteBtn = createDeleteButton();
-        createCustomDiv(cardDiv, taskDiv, doneCheckbox, taskSpan, deleteBtn);
+        createCustomDiv(cardDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
     }
     clearAndFocus();
@@ -21,8 +20,7 @@ function taskDivDisplay(taskDiv) {
     let taskList = document.getElementById("taskList");
     taskList.appendChild(taskDiv);
 }
-function createCustomDiv(cardDiv, taskDiv, doneCheckbox, taskSpan, deleteBtn) {
-    cardDiv.appendChild(taskDiv);
+function createCustomDiv(cardDiv, doneCheckbox, taskSpan, deleteBtn) {
     cardDiv.appendChild(doneCheckbox);
     cardDiv.appendChild(taskSpan);
     cardDiv.appendChild(deleteBtn);
@@ -38,13 +36,8 @@ function createInputTasks() {
     doneCheckbox.classList.add("done");
     return doneCheckbox;
 }
-function createTaskDiv() {
-    let taskDiv = document.createElement("div");
-    taskDiv.classList.add("card-body");
-    return taskDiv;
-}
 function createTaskP(addTask) {
-    let taskP = document.createElement("p");
+    let taskP = document.createElement("label");
     taskP.classList.add("card-text");
     taskP.innerText = addTask;
     return taskP;

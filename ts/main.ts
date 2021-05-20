@@ -12,13 +12,12 @@ function addTaskBtn(){
     else{
         //create elements for tasks
         let cardDiv = createCardDiv();
-        let taskDiv = createTaskDiv();
         let doneCheckbox = createInputTasks();
         let taskSpan = createTaskP(addTask);
         let deleteBtn = createDeleteButton();
 
         // assemble and display tasks on webpage
-        createCustomDiv(cardDiv, taskDiv, doneCheckbox, taskSpan, deleteBtn);
+        createCustomDiv(cardDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
     }
     clearAndFocus();
@@ -29,8 +28,8 @@ function taskDivDisplay(taskDiv: HTMLDivElement) {
     taskList.appendChild(taskDiv);
 }
 
-function createCustomDiv(cardDiv: HTMLDivElement, taskDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, taskSpan: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
-    cardDiv.appendChild(taskDiv);
+function createCustomDiv(cardDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
+                        taskSpan: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
     cardDiv.appendChild(doneCheckbox);
     cardDiv.appendChild(taskSpan);
     cardDiv.appendChild(deleteBtn);
@@ -49,14 +48,8 @@ function createInputTasks() {
     return doneCheckbox;
 }
 
-function createTaskDiv() {
-    let taskDiv = (<HTMLDivElement>document.createElement("div"));
-    taskDiv.classList.add("card-body");
-    return taskDiv;
-}
-
 function createTaskP(addTask: string) {
-    let taskP = document.createElement("p");
+    let taskP = document.createElement("label");
     taskP.classList.add("card-text");
     taskP.innerText = addTask;
     return taskP;
