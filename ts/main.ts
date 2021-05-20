@@ -13,7 +13,7 @@ function addTaskBtn(){
         //create elements for tasks
         let cardDiv = createCardDiv();
         let doneCheckbox = createInputTasks();
-        let taskSpan = createTaskP(addTask);
+        let taskSpan = createTaskLabel(addTask);
         let deleteBtn = createDeleteButton();
 
         // assemble and display tasks on webpage
@@ -44,13 +44,17 @@ function createCardDiv() {
 function createInputTasks() {
     let doneCheckbox = document.createElement("input");
     doneCheckbox.type = "checkbox";
-    doneCheckbox.classList.add("done");
+    doneCheckbox.classList.add("form-check-input");
+    //doneCheckbox.id = "flexCheckDefault";
+    doneCheckbox.value = "";    
     return doneCheckbox;
 }
 
-function createTaskP(addTask: string) {
+function createTaskLabel(addTask: string) {
     let taskP = document.createElement("label");
     taskP.classList.add("card-text");
+    taskP.classList.add("form-check-label");
+    taskP.setAttribute("for", "flexCheckDefault");
     taskP.innerText = addTask;
     return taskP;
 }
@@ -58,7 +62,11 @@ function createTaskP(addTask: string) {
 function createDeleteButton() {
     let deleteBtn = document.createElement("button");
     deleteBtn.onclick = removeTaskBtn;
-    deleteBtn.innerText = "Delete";
+    deleteBtn.type = "button";
+    deleteBtn.classList.add("btn");
+    deleteBtn.classList.add("btn-primary"); //add takes one at a time
+    deleteBtn.innerText = "X"
+
     return deleteBtn;
 }
 

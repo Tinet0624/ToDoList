@@ -9,7 +9,7 @@ function addTaskBtn() {
     else {
         let cardDiv = createCardDiv();
         let doneCheckbox = createInputTasks();
-        let taskSpan = createTaskP(addTask);
+        let taskSpan = createTaskLabel(addTask);
         let deleteBtn = createDeleteButton();
         createCustomDiv(cardDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
@@ -33,19 +33,25 @@ function createCardDiv() {
 function createInputTasks() {
     let doneCheckbox = document.createElement("input");
     doneCheckbox.type = "checkbox";
-    doneCheckbox.classList.add("done");
+    doneCheckbox.classList.add("form-check-input");
+    doneCheckbox.value = "";
     return doneCheckbox;
 }
-function createTaskP(addTask) {
+function createTaskLabel(addTask) {
     let taskP = document.createElement("label");
     taskP.classList.add("card-text");
+    taskP.classList.add("form-check-label");
+    taskP.setAttribute("for", "flexCheckDefault");
     taskP.innerText = addTask;
     return taskP;
 }
 function createDeleteButton() {
     let deleteBtn = document.createElement("button");
     deleteBtn.onclick = removeTaskBtn;
-    deleteBtn.innerText = "Delete";
+    deleteBtn.type = "button";
+    deleteBtn.classList.add("btn");
+    deleteBtn.classList.add("btn-primary");
+    deleteBtn.innerText = "X";
     return deleteBtn;
 }
 function removeTaskBtn() {
