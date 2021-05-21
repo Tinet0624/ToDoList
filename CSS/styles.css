@@ -31,6 +31,7 @@ h1{
     padding: 5px;
     margin: 5px;
     font-size: 1.5rem;
+    cursor: all-scroll;
 }
 
 .card-text{
@@ -39,4 +40,5 @@ h1{
 
 .form-check-input{
     margin: 5px 10px 10px 5px;
+    cursor: pointer;
 }

@@ -42,11 +42,13 @@ function createCardDiv() {
 }
 
 function createInputTasks() {
+    // add div class="form-check"
     let doneCheckbox = document.createElement("input");
     doneCheckbox.type = "checkbox";
     doneCheckbox.classList.add("form-check-input");
-    //doneCheckbox.id = "flexCheckDefault";
-    doneCheckbox.value = "";    
+    doneCheckbox.value = "";
+    
+    
     return doneCheckbox;
 }
 
