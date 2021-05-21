@@ -23,6 +23,10 @@ function addTaskBtn(){
     clearAndFocus();
 }
 
+//ToDO:
+// group checkbox, text, and delete button so they will be inline
+// add color band to the top of tasks for cuteness
+
 function taskDivDisplay(taskDiv: HTMLDivElement) {
     let taskList = document.getElementById("taskList");
     taskList.appendChild(taskDiv);
