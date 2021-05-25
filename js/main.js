@@ -8,11 +8,12 @@ function addTaskBtn() {
     }
     else {
         let cardDiv = createCardDiv();
+        let headerDiv = createHeader();
         let groupDiv = groupTaskDiv();
         let doneCheckbox = createInputTasks();
         let taskSpan = createTaskLabel(addTask);
         let deleteBtn = createDeleteButton();
-        createCustomDiv(cardDiv, groupDiv, doneCheckbox, taskSpan, deleteBtn);
+        createCustomDiv(cardDiv, headerDiv, groupDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
     }
     clearAndFocus();
@@ -21,7 +22,8 @@ function taskDivDisplay(taskDiv) {
     let taskList = document.getElementById("taskList");
     taskList.appendChild(taskDiv);
 }
-function createCustomDiv(cardDiv, groupDiv, doneCheckbox, taskLabel, deleteBtn) {
+function createCustomDiv(cardDiv, headerDiv, groupDiv, doneCheckbox, taskLabel, deleteBtn) {
+    cardDiv.appendChild(headerDiv);
     cardDiv.appendChild(groupDiv);
     groupDiv.appendChild(doneCheckbox);
     groupDiv.appendChild(taskLabel);
@@ -35,8 +37,13 @@ function createCardDiv() {
 function groupTaskDiv() {
     let groupDiv = document.createElement("div");
     groupDiv.classList.add("input-group");
-    groupDiv.classList.add("colorBand");
     return groupDiv;
+}
+function createHeader() {
+    let headerDiv = document.createElement("div");
+    headerDiv.classList.add("card-header");
+    headerDiv.id = "cardHeaderOverride";
+    return headerDiv;
 }
 function createInputTasks() {
     let doneCheckbox = document.createElement("input");

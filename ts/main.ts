@@ -12,13 +12,14 @@ function addTaskBtn(){
     else{
         //create elements for tasks
         let cardDiv = createCardDiv();
+        let headerDiv = createHeader();
         let groupDiv = groupTaskDiv();
         let doneCheckbox = createInputTasks();
         let taskSpan = createTaskLabel(addTask);
         let deleteBtn = createDeleteButton();
 
         // assemble and display tasks on webpage
-        createCustomDiv(cardDiv, groupDiv, doneCheckbox, taskSpan, deleteBtn);
+        createCustomDiv(cardDiv, headerDiv, groupDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
     }
     clearAndFocus();
@@ -29,9 +30,10 @@ function taskDivDisplay(taskDiv: HTMLDivElement) {
     taskList.appendChild(taskDiv);
 }
 
-function createCustomDiv(cardDiv: HTMLDivElement, groupDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
+function createCustomDiv(cardDiv: HTMLDivElement, headerDiv: HTMLDivElement, groupDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
                         taskLabel: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
 
+    cardDiv.appendChild(headerDiv);
     cardDiv.appendChild(groupDiv);
     groupDiv.appendChild(doneCheckbox);
     groupDiv.appendChild(taskLabel);
@@ -44,12 +46,18 @@ function createCardDiv() {
     return cardDiv;
 }
 
-// group checkbox, text, and delete button so they will be inline <div class="input-group">
 function groupTaskDiv(){
     let groupDiv = (<HTMLDivElement>document.createElement("div"));
     groupDiv.classList.add("input-group");
-    groupDiv.classList.add("colorBand");
     return groupDiv;
+}
+
+// header colored band for the click and draggable part of the card
+function createHeader(){
+    let headerDiv = (<HTMLDivElement>document.createElement("div"));
+    headerDiv.classList.add("card-header");
+    headerDiv.id = "cardHeaderOverride";
+    return headerDiv;    
 }
 
 function createInputTasks() {
@@ -58,7 +66,6 @@ function createInputTasks() {
     doneCheckbox.type = "checkbox";
     doneCheckbox.classList.add("form-check-input");
     doneCheckbox.value = "";
-    
     
     return doneCheckbox;
 }

@@ -43,9 +43,6 @@ h1{
     cursor: pointer;
 }
 
-/* needs to use the bootstrap color so it can be changed later!! */
-.colorBand{
-    border-top: 30px solid transparent;
-    border-image: linear-gradient(to right, rgba(0, 110, 255, 0.383), rgb(0, 110, 255) , rgba(255, 255, 0, 0));
-    border-image-slice: 1;
+#cardHeaderOverride{
+    margin-bottom: 5px;
 }
