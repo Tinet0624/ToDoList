@@ -12,37 +12,44 @@ function addTaskBtn(){
     else{
         //create elements for tasks
         let cardDiv = createCardDiv();
+        let groupDiv = groupTaskDiv();
         let doneCheckbox = createInputTasks();
         let taskSpan = createTaskLabel(addTask);
         let deleteBtn = createDeleteButton();
 
         // assemble and display tasks on webpage
-        createCustomDiv(cardDiv, doneCheckbox, taskSpan, deleteBtn);
+        createCustomDiv(cardDiv, groupDiv, doneCheckbox, taskSpan, deleteBtn);
         taskDivDisplay(cardDiv);
     }
     clearAndFocus();
 }
-
-//ToDO:
-// group checkbox, text, and delete button so they will be inline
-// add color band to the top of tasks for cuteness
 
 function taskDivDisplay(taskDiv: HTMLDivElement) {
     let taskList = document.getElementById("taskList");
     taskList.appendChild(taskDiv);
 }
 
-function createCustomDiv(cardDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
-                        taskSpan: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
-    cardDiv.appendChild(doneCheckbox);
-    cardDiv.appendChild(taskSpan);
-    cardDiv.appendChild(deleteBtn);
+function createCustomDiv(cardDiv: HTMLDivElement, groupDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
+                        taskLabel: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
+    // add group div
+    cardDiv.appendChild(groupDiv);
+    // append to group div
+    groupDiv.appendChild(doneCheckbox);
+    groupDiv.appendChild(taskLabel);
+    groupDiv.appendChild(deleteBtn);
 }
 
 function createCardDiv() {
     let cardDiv = (<HTMLDivElement>document.createElement("div"));
     cardDiv.classList.add("card");
     return cardDiv;
+}
+
+// group checkbox, text, and delete button so they will be inline <div class="input-group">
+function groupTaskDiv(){
+    let groupDiv = (<HTMLDivElement>document.createElement("div"));
+    groupDiv.classList.add("input-group");
+    return groupDiv;
 }
 
 function createInputTasks() {
@@ -77,37 +84,11 @@ function createDeleteButton() {
 }
 
 function removeTaskBtn(){
-    let taskDiv = <HTMLElement>this.parentElement;
-    taskDiv.remove();
+    let groupDiv = <HTMLElement>this.parentElement.parentElement;
+    groupDiv.remove();
 }
 
 function clearAndFocus(){
     (<HTMLInputElement>document.getElementById("taskInput")).focus();
     (<HTMLInputElement>document.getElementById("taskInput")).value = "";
 }
-
-// Old code ***************************************************************************
-// let taskNum = 0;
-
-// function incrementTaskNum(){
-//     taskNum++;
-// }
-// (<HTMLElement>document.getElementById("taskList")).innerHTML += 
-        // `
-        //     <div class="tasks">
-        //         <input type="checkbox" id="done">
-        //         <span id="taskName">
-        //             ${addTask}
-        //         </span>
-        //         <button id="deleteButton${taskNum}" 
-        //         onclick="removeTaskBtn('deleteButton${taskNum}')">X</button>
-        //     </div>
-        // `;    
-        // incrementTaskNum();
-    //clear text box
-    // give focus
-    // function removeTaskBtn(id){
-//     let deleteBtn = document.getElementById(id).parentElement;
-
-//     deleteBtn.remove();
-// }
