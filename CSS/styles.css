@@ -36,6 +36,7 @@ h1{
 
 .card-text{
     width: 78%;
+    cursor: all-scroll;
 }
 
 .form-check-input{
