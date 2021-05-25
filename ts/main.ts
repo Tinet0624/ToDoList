@@ -6,7 +6,7 @@ function addTaskBtn(){
 
     let addTask = (<HTMLInputElement>document.getElementById("taskInput")).value;
 
-    if(addTask == ""){
+    if(addTask.trim() == ""){
         alert("Please enter a task.");
     }
     else{

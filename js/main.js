@@ -3,7 +3,7 @@ window.onload = function () {
 };
 function addTaskBtn() {
     let addTask = document.getElementById("taskInput").value;
-    if (addTask == "") {
+    if (addTask.trim() == "") {
         alert("Please enter a task.");
     }
     else {
