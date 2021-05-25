@@ -27,8 +27,7 @@ h1{
 .card{
     width: 355px;
     flex-direction: row;
-    background-color: rgb(241, 245, 255);
-    padding: 5px;
+    padding: 0px 0px 5px 0px;
     margin: 5px;
     font-size: 1.5rem;
     cursor: all-scroll;
@@ -36,10 +35,17 @@ h1{
 
 .card-text{
     width: 78%;
-    cursor: all-scroll;
+    cursor:text;
 }
 
 .form-check-input{
     margin: 5px 10px 10px 5px;
     cursor: pointer;
+}
+
+/* needs to use the bootstrap color so it can be changed later!! */
+.colorBand{
+    border-top: 30px solid transparent;
+    border-image: linear-gradient(to right, rgba(0, 110, 255, 0.383), rgb(0, 110, 255) , rgba(255, 255, 0, 0));
+    border-image-slice: 1;
 }

@@ -31,9 +31,8 @@ function taskDivDisplay(taskDiv: HTMLDivElement) {
 
 function createCustomDiv(cardDiv: HTMLDivElement, groupDiv: HTMLDivElement, doneCheckbox: HTMLInputElement, 
                         taskLabel: HTMLSpanElement, deleteBtn: HTMLButtonElement) {
-    // add group div
+
     cardDiv.appendChild(groupDiv);
-    // append to group div
     groupDiv.appendChild(doneCheckbox);
     groupDiv.appendChild(taskLabel);
     groupDiv.appendChild(deleteBtn);
@@ -49,6 +48,7 @@ function createCardDiv() {
 function groupTaskDiv(){
     let groupDiv = (<HTMLDivElement>document.createElement("div"));
     groupDiv.classList.add("input-group");
+    groupDiv.classList.add("colorBand");
     return groupDiv;
 }
 
@@ -68,6 +68,7 @@ function createTaskLabel(addTask: string) {
     taskP.classList.add("card-text");
     taskP.classList.add("form-check-label");
     taskP.setAttribute("for", "flexCheckDefault");
+    taskP.setAttribute("contenteditable", "true");
     taskP.innerText = addTask;
     return taskP;
 }
@@ -77,12 +78,15 @@ function createDeleteButton() {
     deleteBtn.onclick = removeTaskBtn;
     deleteBtn.type = "button";
     deleteBtn.classList.add("btn");
-    deleteBtn.classList.add("btn-primary"); //add takes one at a time
+    deleteBtn.classList.add("btn-primary"); //add takes one class at a time!
     deleteBtn.innerText = "X"
 
     return deleteBtn;
 }
 
+/**
+ * Deletes the task group the delete button is in.
+ */
 function removeTaskBtn(){
     let groupDiv = <HTMLElement>this.parentElement.parentElement;
     groupDiv.remove();

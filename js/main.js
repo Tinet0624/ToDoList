@@ -35,6 +35,7 @@ function createCardDiv() {
 function groupTaskDiv() {
     let groupDiv = document.createElement("div");
     groupDiv.classList.add("input-group");
+    groupDiv.classList.add("colorBand");
     return groupDiv;
 }
 function createInputTasks() {
@@ -49,6 +50,7 @@ function createTaskLabel(addTask) {
     taskP.classList.add("card-text");
     taskP.classList.add("form-check-label");
     taskP.setAttribute("for", "flexCheckDefault");
+    taskP.setAttribute("contenteditable", "true");
     taskP.innerText = addTask;
     return taskP;
 }
